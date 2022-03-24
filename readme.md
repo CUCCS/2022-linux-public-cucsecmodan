@@ -204,7 +204,7 @@ grep -r "666" /tmp --exclude=*.cast
 
 ##### 遇到问题
 
-刚开始做文件管理的时候，没有注意到asciinema在录制的时候会写入文件，这样会导致输出文件的不可读，即出现乱码：
+* 刚开始做文件管理的时候，没有注意到asciinema在录制的时候会写入文件，这样会导致输出文件的不可读，即出现乱码：
 https://asciinema.org/a/477135
 
 查看了徐岩同学的讨论内容：
@@ -213,7 +213,8 @@ https://asciinema.org/a/477135
     #加上exclude参数配合通配符排除asciinema的输出文件
     ~$ sudo grep -r "666" /tmp --exclude=*.cast
 ```
-
+* 在尝试push的时候出现了问题
+![](img\gitpush_erro.png)
 ----
 
 ##### 参考资料
