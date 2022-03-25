@@ -17,7 +17,7 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 
 ####  一.asciinema的安装配置和账户关联
 官网注册账号：https://asciinema.org
-![](img\1.1.png)
+![](img/1.1.png)
 
 ```bash
 #升级软件包
@@ -27,18 +27,18 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 #将asciinema录制的视频传到官网你的账号上,可以根据提示，打开链接，并且用邮箱登录自己注册的账号
 ~$ asciinema auth
 ```
-![](img\1.2.png)
+![](img/1.2.png)
 ```bash
 #开始录制
 ~$ asciinema rec
 ```
-![](img\1.3.png)
+![](img/1.3.png)
 ```bash
 #根据提示，exit和ctrl+D都可以退出,打开提示的链接，可以看到自己录制的视频
 ~$ exit
 ```
-![](img\1.4.png)
-![](img\1.5.png)
+![](img/1.4.png)
+![](img/1.5.png)
 
 ---
 #### 二.实验环境Ubuntu20.04
@@ -111,7 +111,7 @@ killall ping
 ```bash
 yum install asciinema
 ```
-![](img\asciinema_centosinstall.png)
+![](img/asciinema_centosinstall.png)
 
 * 【软件包管理】
 ```bash
@@ -119,7 +119,7 @@ yum install asciinema
 yum install tshark
 ```
 tshark不能安装
-![](img\tshark_nothingtodo.png)
+![](img/tshark_nothingtodo.png)
 ```bash
 #查看支持安装tshark的包
 ~$ yum whatprovides tshark
@@ -171,7 +171,7 @@ grep -r "666" /tmp --exclude=*.cast
 ~$ yum install unzip #下载解压包
 ~$ unzip hi.zip #解压
 ```
-![](img\unzip_centos.png)
+![](img/unzip_centos.png)
 
 录屏地址：
 [compress&decompress_centos](https://asciinema.org/a/480218)
