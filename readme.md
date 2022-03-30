@@ -44,54 +44,128 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 #### 二.实验环境Ubuntu20.04
 * 【软件包管理】
 
+安装 `tmux` 和 `tshark`
 ```bash
 
     ~$ sudo apt update
     ~$ sudo apt install tmux
     ~$ sudo apt install tshark
-    换到root用户
+```
+用 `find` 和 `which` 查找文件位置
+```bash
+    ~$ fing / -name "tmux"
+    ~$ which tmux
     ~$ find / -name "tshark"
-    #查看和tshark相关联的文件
-    ~$ dpkg -L tshark
-    #将tshark的配置文件和执行文件删除
-    ~$ dpkg -P tshark
-    #再次检验是否删除
-    ~$ dpkg -L tshark
+    ~$ which tshark
+```
+卸载 `tshark`
+```bash
+    ~$ dpkg -L tshark #查看和tshark相关联的文件
+    ~$ dpkg -P tshark #将tshark的配置文件和执行文件删除
+    ~$ dpkg -L tshark #再次检验
 ```
 
-录屏地址：https://asciinema.org/a/477104
+录屏地址：(点击可查看)
+[![](img\install_ubuntu_rec.png)](https://asciinema.org/a/477104)
 
 * 【文件管理】
-    ```bash
+
+运行代码：
+```bash
+cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RANDOM" > "$dir/$dir-$RANDOM";done
+```
+查找 `/tmp` 目录及其所有子目录下，文件名包含 `666` 的所有文件：
+```bash
+~$ sudo find /tmp -name "*666"
+```
+查找 `/tmp` 目录及其所有子目录下，文件内容包含 `666` 的所有文件：
+```bash
     #加上exclude参数配合通配符排除asciinema的输出文件
     ~$ sudo grep -r "666" /tmp --exclude=*.cast
-    ```
-录屏地址：https://asciinema.org/a/477148
+```
+录屏地址：
+[![](img\find&grep_ubuntu.png)](https://asciinema.org/a/477148)
 
 * 【文件压缩与解压缩】
-    ```bash
-    #学会查看简易帮助文档
+
+创建test.txt文档：
+```bash
+~$ vi test.txt
+```
+
+学会查看 `tldr` 帮助文档：
+```bash
     ~$ tldr 7z
     ~$ tldr unzip
-    ```
-录屏地址：https://asciinema.org/a/477421
+```
+`7z` 压缩与解压缩：
+```bash
+~$ 7z a test.txt.7z test.txt
+~$ rm test.txt
+~$ 7z x test.txt.7z
+```
+`gzip` 压缩与解压缩：
+```bash
+~$ gzip test.txt
+~$ gzip -d text.txt.gz
+```
+`bzip2` 压缩与解压缩：
+```bash
+~$ bzip2 test.txt
+~$ bzip2 -d test.txt.bz2
+```
+`zip` 压缩与解压缩：
+```bash
+~$ sudo apt install zip
+~$ zip test.txt.zip test.txt
+~$ sudo apt install unzip
+~$ unzip test.txt.zip
+```
+`tar` 压缩与解压缩：
+```bash
+~$ tar czf test.txt.tar.gz 
+~$ rm test.txt
+~$ tar xvf test.txt.tar.gz
+```
+`rar` 压缩与解压缩：
+```bash
+~$ rar a test.txt.rar test.txt
+~$ rm test.txt
+~$ rar x test.txt.rar
+```
+录屏地址：
+[![](img\compress&decompress_ubuntu.png)](https://asciinema.org/a/477421)
     
 * 【子进程管理实验】
 ```bash
 ~$ ping www.baidu.com &
-# 此时CTRL-C无效
 ~$ CTRL-C
-# 以下“2连击”可以终止该ping进程
+```
+此时CTRL-C无效,以下“2连击”可以终止该ping进程:
+```bash
 ~$ fg
 ~$ CTRL-C
-# 我们再试着把ping进程放到“后台”执行，把标准错误输出先重定向到标准输出，然后再把标准输出重定向到“黑洞”文件
-ping www.baidu.com 1>/dev/null 2>&1 &
-#查看进程
-ps aux | grep ping
-# 杀死所有ping进程
-killall ping
 ```
-录屏地址：https://asciinema.org/a/478017
+把ping进程放到“后台”执行，把标准错误输出先重定向到标准输出，然后再把标准输出重定向到“黑洞”文件:
+```bash
+~$ ping www.baidu.com 1>/dev/null 2>&1 &
+```
+添加一个新的进程并且挂起：
+```bash
+~$ ping www.baidu.com 
+~$ Ctrl+Z
+```
+查看进程,并杀死所有ping进程:
+```bash
+~$ ps aux | grep ping
+~$ killall ping
+```
+发现被挂起的进程没有被杀死，用 `kill -9` 强制杀死
+```bash
+kill -9 [进程编号]
+```
+
+录屏地址：[![](img\processmanage_ubuntu.png)](https://asciinema.org/a/478017)
 
 * 【硬件信息获取】
 ```bash
@@ -103,7 +177,7 @@ killall ping
 ~$ sudo fdisk -l | grep Disk
 ~$ df -l
 ```
-录屏地址：https://asciinema.org/a/478039
+录屏地址：[![](img\CPU&memory&disk_ubuntu.png)](https://asciinema.org/a/478039)
 
 ---
 
@@ -140,7 +214,8 @@ tshark不能安装
 ```bash
 ~$ which tshark
 ```
-录屏地址：[tmux&tshark_install&uninstall_centos](https://asciinema.org/a/480109)
+
+录屏地址：[![](img\install_centos_rec.png)](https://asciinema.org/a/480109)
 
 * 【文件管理】
 
@@ -148,33 +223,39 @@ tshark不能安装
 ```bash
 cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RANDOM" > "$dir/$dir-$RANDOM";done
 ```
-找到/tmp目录及其所有子目录下，文件名包含666的所有文件 
+找到 `/tmp` 目录及其所有子目录下，文件名包含 `666` 的所有文件 
 ```bash
 find /tmp -name "*666"
 ```
-找到/tmp目录及其所有子目录下，文件内容包含666的所有文件
+找到 `/tmp` 目录及其所有子目录下，文件内容包含 `666` 的所有文件
 ```bash
 grep -r "666" /tmp --exclude=*.cast
 ```
-录屏地址：[find_filewith666](https://asciinema.org/a/480116)
+录屏地址：[![](img\find&grep_centos.png)](https://asciinema.org/a/480116)
+
 * 【文件压缩与解压缩】
+
+创建文本文档:
 ```bash
-
-~$ vi hi.txt#创建文本文档
-
-~$ gzip test#压缩
-~$ gzip -d text.gz#解压
-
-~$ zip hi.zip hi.txt #压缩
-~$ ls #查看现有文件
-~$ rm hi.txt #删除txt文件
-~$ yum install unzip #下载解压包
-~$ unzip hi.zip #解压
+vi hi.txt
+```
+`gzip`解压缩
+```bash
+gzip hi.txt
+gzip -d hi.txt.gz
+```
+`zip` 解压缩
+```bash
+zip hi.zip hi.txt 
+rm hi.txt 
+yum install unzip 
+unzip hi.zip 
 ```
 ![](img\unzip_centos.png)
 
 录屏地址：
-[compress&decompress_centos](https://asciinema.org/a/480218)
+[![](img\compress&decompress_centos.png)](https://asciinema.org/a/480218)
+
 * 【子进程管理实验】
 ```bash
 ~$ ping www.baidu.com &
@@ -191,7 +272,7 @@ grep -r "666" /tmp --exclude=*.cast
 ```
 
 录屏地址：
-[processmanage_centos](https://asciinema.org/a/480232)
+[![](img\processmanage_centos.png)](https://asciinema.org/a/480232)
 
 * 【硬件信息获取】
 ```bash
@@ -200,17 +281,19 @@ grep -r "666" /tmp --exclude=*.cast
 ~$ fdisk -l |grep Disk #查看硬盘数量与容量
 ~$ df -l
 ```
-[CPU&memory&disk_centos](https://asciinema.org/a/480236)
+[![](img\CPU&memory&disk_centos.png)](https://asciinema.org/a/480236)
 
 ##### 遇到问题
 
 * 刚开始做文件管理的时候，没有注意到asciinema在录制的时候会写入文件，这样会导致输出文件的不可读，即出现乱码：
-https://asciinema.org/a/477135
+[![](img\messycode_ubuntu.png)](https://asciinema.org/a/477135)
 
 查看了徐岩同学的讨论内容：
 [畅课课后讨论](http://courses.cuc.edu.cn/course/82669/forum#/topics/224452?show_sidebar=false&scrollTo=topic-224452&pageIndex=2&pageCount=3&topicIds=230464,229102,228487,228229,228070,227158,225778,225676,224452,224041&predicate=lastUpdatedDate&reverse)
+
+加上exclude参数配合通配符排除asciinema的输出文件,就可以解决问题了：
 ```bash
-    #加上exclude参数配合通配符排除asciinema的输出文件
+    
     ~$ sudo grep -r "666" /tmp --exclude=*.cast
 ```
 
@@ -219,6 +302,7 @@ https://asciinema.org/a/477135
 ##### 参考资料
 asciinema auth：
 https://zhuanlan.zhihu.com/p/56376724
+
 dpkg指令：
 https://www.cnblogs.com/TankXiao/p/3332457.html#removeN
 
