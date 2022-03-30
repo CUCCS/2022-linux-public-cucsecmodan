@@ -66,7 +66,7 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 ```
 
 录屏地址：(点击可查看)
-[![](img\install_ubuntu_rec.png)](https://asciinema.org/a/477104)
+[![](img/install_ubuntu_rec.png)](https://asciinema.org/a/477104)
 
 * 【文件管理】
 
@@ -84,7 +84,7 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
     ~$ sudo grep -r "666" /tmp --exclude=*.cast
 ```
 录屏地址：
-[![](img\find&grep_ubuntu.png)](https://asciinema.org/a/477148)
+[![](img/find&grep_ubuntu.png)](https://asciinema.org/a/477148)
 
 * 【文件压缩与解压缩】
 
@@ -134,7 +134,7 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 ~$ rar x test.txt.rar
 ```
 录屏地址：
-[![](img\compress&decompress_ubuntu.png)](https://asciinema.org/a/477421)
+[![](img/compress&decompress_ubuntu.png)](https://asciinema.org/a/477421)
     
 * 【子进程管理实验】
 ```bash
@@ -165,7 +165,7 @@ cd /tmp && for i in $(seq 0 1024);do dir="test-$RANDOM";mkdir "$dir";echo "$RAND
 kill -9 [进程编号]
 ```
 
-录屏地址：[![](img\processmanage_ubuntu.png)](https://asciinema.org/a/478017)
+录屏地址：[![](img/processmanage_ubuntu.png)](https://asciinema.org/a/478017)
 
 * 【硬件信息获取】
 ```bash
@@ -177,7 +177,7 @@ kill -9 [进程编号]
 ~$ sudo fdisk -l | grep Disk
 ~$ df -l
 ```
-录屏地址：[![](img\CPU&memory&disk_ubuntu.png)](https://asciinema.org/a/478039)
+录屏地址：[![](img/CPU&memory&disk_ubuntu.png)](https://asciinema.org/a/478039)
 
 ---
 
@@ -215,7 +215,7 @@ tshark不能安装
 ~$ which tshark
 ```
 
-录屏地址：[![](img\install_centos_rec.png)](https://asciinema.org/a/480109)
+录屏地址：[![](img/install_centos_rec.png)](https://asciinema.org/a/480109)
 
 * 【文件管理】
 
@@ -231,7 +231,7 @@ find /tmp -name "*666"
 ```bash
 grep -r "666" /tmp --exclude=*.cast
 ```
-录屏地址：[![](img\find&grep_centos.png)](https://asciinema.org/a/480116)
+录屏地址：[![](img/find&grep_centos.png)](https://asciinema.org/a/480116)
 
 * 【文件压缩与解压缩】
 
@@ -254,7 +254,7 @@ unzip hi.zip
 ![](img/unzip_centos.png)
 
 录屏地址：
-[![](img\compress&decompress_centos.png)](https://asciinema.org/a/480218)
+[![](img/compress&decompress_centos.png)](https://asciinema.org/a/480218)
 
 * 【子进程管理实验】
 ```bash
@@ -272,7 +272,7 @@ unzip hi.zip
 ```
 
 录屏地址：
-[![](img\processmanage_centos.png)](https://asciinema.org/a/480232)
+[![](img/processmanage_centos.png)](https://asciinema.org/a/480232)
 
 * 【硬件信息获取】
 ```bash
@@ -281,12 +281,12 @@ unzip hi.zip
 ~$ fdisk -l |grep Disk #查看硬盘数量与容量
 ~$ df -l
 ```
-[![](img\CPU&memory&disk_centos.png)](https://asciinema.org/a/480236)
+[![](img/CPU&memory&disk_centos.png)](https://asciinema.org/a/480236)
 
 ##### 遇到问题
 
 * 刚开始做文件管理的时候，没有注意到asciinema在录制的时候会写入文件，这样会导致输出文件的不可读，即出现乱码：
-[![](img\messycode_ubuntu.png)](https://asciinema.org/a/477135)
+[![](img/messycode_ubuntu.png)](https://asciinema.org/a/477135)
 
 查看了徐岩同学的讨论内容：
 [畅课课后讨论](http://courses.cuc.edu.cn/course/82669/forum#/topics/224452?show_sidebar=false&scrollTo=topic-224452&pageIndex=2&pageCount=3&topicIds=230464,229102,228487,228229,228070,227158,225778,225676,224452,224041&predicate=lastUpdatedDate&reverse)
