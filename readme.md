@@ -29,7 +29,7 @@
 $ systemctl --version
 ```
 
-![](img\systemd--version.png)
+![](img/systemd--version.png)
 
 
 2.`systemd-analyze` 命令查看启动耗时。
@@ -47,7 +47,7 @@ $ systemd-analyze critical-chain
 $ systemd-analyze critical-chain atd.service
 ```
 录屏地址：
-[![](img\systemd-analyze.png)](https://asciinema.org/a/485762)
+[![](img/systemd-analyze.png)](https://asciinema.org/a/485762)
 3.`hostnamectl`命令用于查看当前主机的信息:
 ```bash
 # 显示当前主机的信息
@@ -57,7 +57,7 @@ $ hostnamectl
 $ sudo hostnamectl set-hostname rhel7
 ```
 录屏地址：
-[![](img\hostnamectl_asciinema.png)](https://asciinema.org/a/485765)
+[![](img/hostnamectl_asciinema.png)](https://asciinema.org/a/485765)
 4.`localectl`命令用于查看本地化设置:
 ```bash
 
@@ -69,7 +69,7 @@ $ sudo localectl set-locale LANG=en_GB.utf8
 $ sudo localectl set-keymap en_GB
 ```
 录屏地址：
-[![](img\localectl_asciinema.png)](https://asciinema.org/a/485769)
+[![](img/localectl_asciinema.png)](https://asciinema.org/a/485769)
 
 5.`timedatectl` 命令用于查看当前时区设置。
 ```bash
@@ -86,7 +86,7 @@ $ sudo timedatectl set-time YYYY-MM-DD
 $ sudo timedatectl set-time HH:MM:SS
 ```
 录屏地址：
-[![](img\timedate_asciinema.png)](https://asciinema.org/a/485770)
+[![](img/timedate_asciinema.png)](https://asciinema.org/a/485770)
 6.`loginctl` 命令用于查看当前登录的用户。
 ```bash
 # 列出当前session
@@ -99,7 +99,8 @@ $ loginctl list-users
 $ loginctl show-user ruanyf
 ```
 录屏地址：
-[![](img\loginctl_asciinema.png)](https://asciinema.org/a/485773)
+[![](img/loginctl_asciinema.png)](https://asciinema.org/a/485773)
+
 7.`systemctl list-units` 命令可以查看当前系统的所有 Unit
 ```bash
 
@@ -119,7 +120,7 @@ $ systemctl list-units --failed
 $ systemctl list-units --type=service
 ```
 录屏地址：
-[![](img\systemctllist-units_asciinema.png)](https://asciinema.org/a/485775)
+[![](img/systemctllist-units_asciinema.png)](https://asciinema.org/a/485775)
 8.`systemctl status` 命令用于查看系统状态和单个 Unit 的状态:
 ```bash
 # 显示系统状态
@@ -138,7 +139,7 @@ $ systemctl is-failed accounts-daemon.service
 # 显示某个 Unit 服务是否建立了启动链接
 $ systemctl is-enabled accounts-daemon.service
 ```
-[![](img\systemctlstatus_asciinema.png)](https://asciinema.org/a/485785)
+[![](img/systemctlstatus_asciinema.png)](https://asciinema.org/a/485785)
 9.`systemctl list-dependencies` 命令列出一个 Unit 的所有依赖
 ```bash
 
@@ -147,7 +148,7 @@ $ systemctl list-dependencies nginx.service
 $ systemctl list-dependencies --all nginx.service
 ```
 录屏地址：
-[![](img\systemctllist-dependencies_asciinema.png)](https://asciinema.org/a/485789)
+[![](img/systemctllist-dependencies_asciinema.png)](https://asciinema.org/a/485789)
 10.`systemctl list-unit-files` 命令用于列出所有配置文件:
 ```bash
 # 列出所有配置文件
@@ -157,7 +158,7 @@ $ systemctl list-unit-files
 $ systemctl list-unit-files --type=service
 ```
 录屏地址：
-[![](img\systemctllist-unit-files_asciinema.png)](https://asciinema.org/a/485790)
+[![](img/systemctllist-unit-files_asciinema.png)](https://asciinema.org/a/485790)
 
 11.target管理：
 ```bash
@@ -180,7 +181,7 @@ $ sudo systemctl set-default multi-user.target
 $ sudo systemctl isolate multi-user.target
 ```
 录屏地址：
-[![](img\target_asciinema.png)](https://asciinema.org/a/485792)
+[![](img/target_asciinema.png)](https://asciinema.org/a/485792)
 
 12.日志管理
 ```bash
@@ -265,14 +266,14 @@ $ sudo journalctl --vacuum-size=1G
 $ sudo journalctl --vacuum-time=1years
 ```
 录屏地址：
-[![](img\journalctl_asciinema.png)](https://asciinema.org/a/485883)
+[![](img/journalctl_asciinema.png)](https://asciinema.org/a/485883)
 
 12.开机启动
 ```bash
 $ sudo systemctl enable networktest.service
 ```
 录屏地址：
-[![](img\systemctl_enable_asciinema.png)](https://asciinema.org/a/485884)
+[![](img/systemctl_enable_asciinema.png)](https://asciinema.org/a/485884)
 
 13.启动服务和停止服务
 ```bash
@@ -290,9 +291,9 @@ $ systemctl list-dependencies multi-user.target # 查看 multi-user.target 包�
 
 $ sudo systemctl isolate shutdown.target # shutdown.target 就是关机状态
 ```
-![](img\systemgetdefault.png)
+![](img/systemgetdefault.png)
 
-![](img\systemctllistdependence.png)
+![](img/systemctllistdependence.png)
 
 
 14.修改配置文件后重启
@@ -318,7 +319,7 @@ $ sudo systemctl restart networktest.service
 ~$ sudo usermod -a -G sudo lily
 ```
 录屏地址：
-[![](img\adduser&sudo_ubuntu.png)](https://asciinema.org/a/482316)
+[![](img/adduser&sudo_ubuntu.png)](https://asciinema.org/a/482316)
 ### 2.如何将一个用户添加到一个用户组？
 查看用户组
 ```bash
@@ -341,7 +342,7 @@ $ sudo systemctl restart networktest.service
 ~$ sudo groupdel mygroup
 ```
 录屏地址：
-[![](img\addgroup_ubuntu.png)](https://asciinema.org/a/482589)
+[![](img/addgroup_ubuntu.png)](https://asciinema.org/a/482589)
 
 ---
 ### 3.如何查看当前系统的分区表和文件系统详细信息？
@@ -349,7 +350,7 @@ $ sudo systemctl restart networktest.service
 ```bash
 ~$ sudo fdisk -l
 ```
-![](img\fdisk.png)
+![](img/fdisk.png)
 也可以进入到某个分区(/dev/sda)进行查看：
 ```bash
 ~$ lsblk #查看块区
@@ -357,17 +358,17 @@ $ sudo systemctl restart networktest.service
 m #查看帮助
 p #查看分区表和详细信息
 ```
-![](img\fdisk_sda.png)
+![](img/fdisk_sda.png)
 
 查看磁盘管理信息：
 ```bash
 ~$ df -h
 ```
-![](img\df.png)
+![](img/df.png)
 
 ### 4.如何实现开机自动挂载Virtualbox的共享目录分区？
 在虚拟机中的共享文件夹设置中设置好固定分配目录：
-![](img\set_fixedshareplace.png)
+![](img/set_fixedshareplace.png)
 在虚拟机上创建共享文件目录：
 ```bash
 ~$ sudo mkdir /mnt/share
@@ -378,9 +379,9 @@ p #查看分区表和详细信息
 ~$ cd /mnt/share
 ~$ ls
 ```
-![](img\share_file.png)
+![](img/share_file.png)
 关机重新连接，发现共享文件夹里的文件没有出现：
-![](img\afterpoweroff.png)
+![](img/afterpoweroff.png)
 
 实现开机自动挂载：
 ```bash
@@ -391,7 +392,7 @@ p #查看分区表和详细信息
 #Share_vbox是Windows上的共享文件夹，/mnt/share是Ubuntu上的共享文件夹
 ~$ Share_vbox /mnt/share vboxsf rw,gid=cuc,uid=cuc,auto 0 0 
 ```
-![](img\auto_mountshare.png)
+![](img/auto_mountshare.png)
 重启虚拟机：
 ```bash
 poweroff
@@ -401,10 +402,10 @@ poweroff
 ~$ cd /mnt/share
 ~$ ls
 ```
-![](img\auto_mountshare_file.png)
+![](img/auto_mountshare_file.png)
 
 ### 5.基于LVM（逻辑分卷管理）的分区如何实现动态扩容和缩减容量？
-![](img\LVM_struction.png)
+![](img/LVM_struction.png)
 初始化硬盘：先关闭正在运行的虚拟机，在硬盘设置SATA下新增硬盘
 普通磁盘管理：
 ```bash
@@ -425,19 +426,19 @@ pvcreate /dev/sdb{1,2,3} #创建PV分区
 pvs #查看PV分区信息
 pvscan #查看PV分区信息
 ```
-![](img\pvcreate.png)
-![](img\vgcreate_sdc.png)
+![](img/pvcreate.png)
+![](img/vgcreate_sdc.png)
 创建VG分区：
 ```bash
 vgcreate test-vg /dev/sdb{1,2,3} #创建VG分区
 vgs #查看VG分区
 ```
-![](img\vgcreate.png)
+![](img/vgcreate.png)
 扩展vg分区：
 ```bash
 vgextend test-vg /dev/sdc{1,2}
 ```
-![](img\vgextend.png)
+![](img/vgextend.png)
 创建LV分区：
 ```bash lvcreate -L 10G -n test-lv-1 test-vg #创建LV分区
 lvdisplay #查看LV信息
@@ -454,14 +455,14 @@ mkfs.ext4 /dev/test-vg/test-lv-1
 mkdir /mnt/test-lv-1
 mount /dev/test-vg/test-lv-1 /mnt/test-lv-1
 ```
-![](img\mount_lv.png)
+![](img/mount_lv.png)
 动态扩容和缩减容量:
 ```bash
 lvresize --size +2G --resizefs /dev/test-vg/test-lv-3 #扩容
 lvresize --size -2G --resizefs /dev/test-vg/test-lv-3 #减容
 ```
 录屏地址：
-[![](img\lvresize_asciinema.png)](https://asciinema.org/a/484868)
+[![](img/lvresize_asciinema.png)](https://asciinema.org/a/484868)
 ### 6.如何通过systemd设置实现在网络连通时运行一个指定脚本，在网络断开时运行另一个脚本？
 创建脚本：
 ```bash
@@ -501,7 +502,7 @@ WantedBy=multi-user.target
 ~$ sudo journalctl -u networktest.service
 ```
 录屏地址：
-[![](img\system_unit.png)](https://asciinema.org/a/485481)
+[![](img/system_unit.png)](https://asciinema.org/a/485481)
 
 ### 7.如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动？实现杀不死？ 
 创建一个不可杀死的脚本：
