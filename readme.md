@@ -314,6 +314,40 @@ done
 
 ```
 
+#### 完成效果图
+```option -a``` 效果:
+
+![](test_img/task1_-a.jpg)
+
+```option -A``` 效果:
+
+![](test_img/task_A.jpg)
+
+```option -b``` 效果:
+
+![](test_img/task1_b.jpg)
+
+```option -B``` 效果:
+
+![](test_img/task1_Ball.jpg)
+
+```option -c``` 效果:
+
+![](test_img/task1_c.jpg)
+
+```option -C``` 效果:
+
+![](test_img/task1_Call.jpg)
+
+```option -d``` 效果:
+
+![](test_img/task1_d.jpg)
+
+```option -D``` 效果:
+
+![](test_img/task1_Dall.jpg)
+
+
 ### 任务二
 
 ```bash
@@ -345,7 +379,14 @@ END{
     printf "%-10s %-6d %-2.1f%%\n","30岁以上",highnum,highnum*100/totalnum
 
 }
-' task2/worldcupplayerinfo.tsv
+' worldcupplayerinfo.tsv
+
+```
+#### 完成效果图
+
+![](test_img\task2_age.jpg)
+
+```bash
 
 #统计不同场上位置的球员数量、百分比
 awk '
@@ -383,7 +424,13 @@ END{
     printf "%-10s %-6d %-2.1f%%\n"," Midfielder", Midfieldernum, Midfieldernum*100/totalnum
 
 }
-' task2/worldcupplayerinfo.tsv
+' worldcupplayerinfo.tsv
+```
+#### 完成效果图
+
+![](test_img\task2_position.jpg)
+
+```bash
 
 #名字最长的球员是谁？名字最短的球员是谁？
 awk '
@@ -401,7 +448,7 @@ END{
     printf len
     printf "\n"
 }
-' task2/worldcupplayerinfo.tsv
+' worldcupplayerinfo.tsv
 
 awk '
 #名字最短
@@ -418,7 +465,13 @@ END{
     printf len
     printf "\n"
 }
-' task2/worldcupplayerinfo.tsv
+' worldcupplayerinfo.tsv
+```
+#### 完成效果图
+
+![](test_img\task2_length.jpg)
+
+```bash
 
 #年龄最大的球员是谁？年龄最小的球员是谁？
 # sed -i '$d' worldcupplayerinfo.tsv #预处理，去掉tag行重命名为worldcupplayerinfo_change.tsv，这个是去掉最后一行的写法
@@ -438,7 +491,7 @@ END{
     printf max
     printf "\n"
 }
-' task2/worldcupplayerinfo_change.tsv
+' worldcupplayerinfo_change.tsv
 
 awk '  
 #最小年龄
@@ -456,8 +509,11 @@ END{
     printf min
     printf "\n"
 }
-' task2/worldcupplayerinfo_change.tsv
+' worldcupplayerinfo_change.tsv
 ```
+#### 完成效果图
+
+![](test_img\task2_oldest&youngeat.jpg)
 
 ### 任务三
 ```bash
@@ -487,7 +543,7 @@ Function_3(){
     # cut -f5 task3/web_log.tsv | sort | uniq -c | sort -r -n | head -n 100 #邱纪霖的方法，用cut实现
 }
 
-    function_4(){
+    Function_4(){
         echo "----------统计不同响应状态码出现次数和对应的百分比----------"
         column=$(cat task3/web_log.tsv | grep "[0-9]" | awk '{print $6}' | sort | uniq -c | sort -n -r ) #grep "[0-9]"是为了排除column里response带有英文的这一数据
         type=()
@@ -522,7 +578,7 @@ Function_3(){
     }
     
 
-    function_5(){
+    Function_5(){
         echo "----------分别统计不同4xx状态码对应的top10 URL和对应出现的总次数----------"
         echo "403:"
         cat task3/web_log.tsv | awk '$6==403{print $5}' | sort | uniq -c | sort -n -r | head -n 10 #top10 URL
@@ -531,7 +587,7 @@ Function_3(){
     }
     
 
-function_6(){
+Function_6(){
     sub=("$OPTARG") 
     until [[ $(eval "echo \${$OPTIND}") =~ ^-.* ]] || [ -z "$(eval "echo \${$OPTIND}")" ];
     do
@@ -549,22 +605,22 @@ while getopts :abcdef: opt
 do
     case $opt in
     a)
-        function_1
+        Function_1
     ;;
     b)
-        function_2
+        Function_2
     ;;
     c)
-        function_3
+        Function_3
     ;;
     d)
-        function_4
+        Function_4
     ;;
     e)
-        function_5
+        Function_5
     ;;
     f)
-        function_6
+        Function_6
     ;;
     *)
     echo """
@@ -586,8 +642,31 @@ do
 done
 ```
 
+#### 完成效果图
 
+```option -a``` 效果图:
 
+![](test_img\task3_主机top100.jpg)
+
+```option -b``` 效果图:
+
+![](test_img\task3_iptop100.jpg)
+
+```option -c``` 效果图:
+
+![](test_img\task3_URLtop100.jpg)
+
+```option -d``` 效果图:
+
+![](test_img\task3_状态码.jpg)
+
+```option -e``` 效果图:
+
+![](test_img\task3_4xx状态码.jpg)
+
+```option -f``` 效果图:
+
+![](test_img\task3_给定URLtop100.jpg)
 
 ----
 ## 参考资料
