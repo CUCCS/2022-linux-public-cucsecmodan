@@ -323,6 +323,7 @@ done
 
 ![](test_img/task_A.jpg)
 
+
 ```option -b``` 效果:
 
 ![](test_img/task1_b.jpg)
@@ -384,7 +385,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img\task2_age.jpg)
+![](test_img/task2_age.jpg)
 
 ```bash
 
@@ -428,7 +429,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img\task2_position.jpg)
+![](test_img/task2_position.jpg)
 
 ```bash
 
@@ -469,7 +470,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img\task2_length.jpg)
+![](test_img/task2_length.jpg)
 
 ```bash
 
@@ -513,7 +514,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img\task2_oldest&youngeat.jpg)
+![](test_img/task2_oldest&youngeat.jpg)
 
 ### 任务三
 ```bash
@@ -646,27 +647,27 @@ done
 
 ```option -a``` 效果图:
 
-![](test_img\task3_主机top100.jpg)
+![](test_img/task3_主机top100.jpg)
 
 ```option -b``` 效果图:
 
-![](test_img\task3_iptop100.jpg)
+![](test_img/task3_iptop100.jpg)
 
 ```option -c``` 效果图:
 
-![](test_img\task3_URLtop100.jpg)
+![](test_img/task3_URLtop100.jpg)
 
 ```option -d``` 效果图:
 
-![](test_img\task3_状态码.jpg)
+![](test_img/task3_状态码.jpg)
 
 ```option -e``` 效果图:
 
-![](test_img\task3_4xx状态码.jpg)
+![](test_img/task3_4xx状态码.jpg)
 
 ```option -f``` 效果图:
 
-![](test_img\task3_给定URLtop100.jpg)
+![](test_img/task3_给定URLtop100.jpg)
 
 ----
 ## 参考资料
