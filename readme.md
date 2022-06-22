@@ -317,36 +317,41 @@ done
 #### 完成效果图
 ```option -a``` 效果:
 
-![](test_img/task1_-a.jpg)
+![task1_-a](test_img/task1_-a.jpg)
 
 ```option -A``` 效果:
 
-![](test_img/task_A.jpg)
+![task_A](test_img/task_A.jpg)
 
 
 ```option -b``` 效果:
 
-![](test_img/task1_b.jpg)
+![task1_b](test_img/task1_b.jpg)
 
 ```option -B``` 效果:
 
-![](test_img/task1_Ball.jpg)
+![task1_Ball](test_img/task1_Ball.jpg)
 
 ```option -c``` 效果:
 
-![](test_img/task1_c.jpg)
+![task1_c](test_img/task1_c.jpg)
 
 ```option -C``` 效果:
 
-![](test_img/task1_Call.jpg)
+![task1_Call](test_img/task1_Call.jpg)
 
 ```option -d``` 效果:
 
-![](test_img/task1_d.jpg)
+![task1_d](test_img/task1_d.jpg)
 
 ```option -D``` 效果:
 
-![](test_img/task1_Dall.jpg)
+![task1_Dall](test_img/task1_Dall.jpg)
+
+#### 关于 ```svg``` 图像的压缩与大小缩放：
+由于是矢量图，在压缩这一步会报错，可以直接改变图像大小。
+详情参考：
+[Resizing .svg image using 'convert' function of ImageMagick suite produces empty images](https://stackoverflow.com/questions/43522939/resizing-svg-image-using-convert-function-of-imagemagick-suite-produces-empty)
 
 
 ### 任务二
@@ -385,7 +390,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img/task2_age.jpg)
+![task2_age](test_img/task2_age.jpg)
 
 ```bash
 
@@ -429,7 +434,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img/task2_position.jpg)
+![task2_position](test_img/task2_position.jpg)
 
 ```bash
 
@@ -470,7 +475,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img/task2_length.jpg)
+![task2_length](test_img/task2_length.jpg)
 
 ```bash
 
@@ -514,7 +519,7 @@ END{
 ```
 #### 完成效果图
 
-![](test_img/task2_oldest&youngeat.jpg)
+![task2_oldest&youngeat](test_img/task2_oldest&youngeat.jpg)
 
 ### 任务三
 ```bash
@@ -647,27 +652,27 @@ done
 
 ```option -a``` 效果图:
 
-![](test_img/task3_主机top100.jpg)
+![task3_主机top100](test_img/task3_主机top100.jpg)
 
 ```option -b``` 效果图:
 
-![](test_img/task3_iptop100.jpg)
+![task3_iptop100](test_img/task3_iptop100.jpg)
 
 ```option -c``` 效果图:
 
-![](test_img/task3_URLtop100.jpg)
+![task3_URLtop100](test_img/task3_URLtop100.jpg)
 
 ```option -d``` 效果图:
 
-![](test_img/task3_状态码.jpg)
+![task3_状态码](test_img/task3_状态码.jpg)
 
 ```option -e``` 效果图:
 
-![](test_img/task3_4xx状态码.jpg)
+![task3_4xx状态码](test_img/task3_4xx状态码.jpg)
 
 ```option -f``` 效果图:
 
-![](test_img/task3_给定URLtop100.jpg)
+![task3_给定URLtop100](test_img/task3_给定URLtop100.jpg)
 
 ----
 ## 参考资料
