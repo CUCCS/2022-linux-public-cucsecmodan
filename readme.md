@@ -304,51 +304,51 @@ create user dvwa@localhost identified by 'p@ssw0rd';
 flush privileges;
 ```
 访问:
-![](imgs\访问dvwa1.png)
-![](imgs\访问dvwa.png)
+![](imgs/访问dvwa1.png)
+![](imgs/访问dvwa.png)
 
 配置 `verynginx` 作为防火墙：
-![](imgs\wp&dvwa.png)
-![](imgs\wordpress&dvwa.png)
+![](imgs/wp&dvwa.png)
+![](imgs/wordpress&dvwa.png)
 
 
 ### 2.配置安全加固要求
 1.使用IP地址方式均无法访问上述任意站点，并向访客展示自定义的友好错误提示信息页面-1
-![](imgs\ip拦截.png)
-![](imgs\ip拦截规则.png)
-![](imgs\ip拦截相应.png)
-![](imgs\ip拦截成功.png)
+![](imgs/ip拦截.png)
+![](imgs/ip拦截规则.png)
+![](imgs/ip拦截相应.png)
+![](imgs/ip拦截成功.png)
 
 2.Damn Vulnerable Web Application (DVWA)只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-2
-![](imgs\白名单.png)
-![](imgs\白名单拦截规则.png)
-![](imgs\白名单响应规则.png)
-![](imgs\白名单测试.png)
+![](imgs/白名单.png)
+![](imgs/白名单拦截规则.png)
+![](imgs/白名单响应规则.png)
+![](imgs/白名单测试.png)
 
 3.在不升级Wordpress版本的情况下，通过定制VeryNginx的访问控制策略规则，热修复WordPress < 4.7.1 - Username Enumeration
 
 4.通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护
-![](imgs\attack_sql.png)
-![](imgs\attack_sql拦截规则.png)
-![](imgs\dvwa_low.png)
+![](imgs/attack_sql.png)
+![](imgs/attack_sql拦截规则.png)
+![](imgs/dvwa_low.png)
 
 
 ### 3.Verynginx配置要求
 1.VeryNginx的Web管理页面仅允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-3
-![](imgs\vn_wl.png)
-![](imgs\vn_wl拦截规则.png)
-![](imgs\vn_wl响应规则.png)
-![](imgs\vn_wl拦截成功.png)
+![](imgs/vn_wl.png)
+![](imgs/vn_wl拦截规则.png)
+![](imgs/vn_wl响应规则.png)
+![](imgs/vn_wl拦截成功.png)
 
 2.超过访问频率限制的请求直接返回自定义错误提示信息页面-4
-![](imgs\频率限制.png)
-![](imgs\frequence响应规则.png)
+![](imgs/频率限制.png)
+![](imgs/frequence响应规则.png)
 
 3.禁止curl访问
-![](imgs\curl.png)
-![](imgs\curl拦截规则.png)
-![](imgs\curl_响应规则.png)
-![](imgs\curl测试成功.png)
+![](imgs/curl.png)
+![](imgs/curl拦截规则.png)
+![](imgs/curl_响应规则.png)
+![](imgs/curl测试成功.png)
 
 -------------
 ## 参考文献
