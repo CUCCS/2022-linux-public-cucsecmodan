@@ -43,9 +43,9 @@ sudo apt install nginx
 sudo systemctl start nginx
 sudo systemctl status nginx
 ```
-![](imgs\start_nginx.png)
+![](imgs/start_nginx.png)
 访问 `192.168.56.101:80` ：
-![](imgs\访问nginx.png)
+![](imgs/访问nginx.png)
 说明已经成功安装，还需要进一步配置。
 
 ### 2.安装 `Verynginx`
@@ -56,7 +56,7 @@ mkdir verynginx
 cd verynginx
 git clone https://github.com/alexazhou/VeryNginx.git
 ```
-![](imgs\git_clone_verynginx.png) 
+![](imgs/git_clone_verynginx.png) 
 安装 `verynginx` 依赖的工具：
 ```bash
 cd Verynginx
@@ -75,7 +75,7 @@ sudo apt-get install zlib1g-dev
 ```bash
 sudo python install.py install
 ```
-![](imgs\install_verynginx.png)
+![](imgs/install_verynginx.png)
 
 为了防止verynginx和nginx的端口号重复了，修改配置文件里的端口：
 ```bash
@@ -83,22 +83,22 @@ cd /opt/verynginx/openresty/nginx/conf
 sudo vi nginx.conf
 ```
 修改前：
-![](imgs\verynginx_orinal_port.png)
+![](imgs/verynginx_orinal_port.png)
 修改后：
-![](imgs\verynginx_reset_port.png)
+![](imgs/verynginx_reset_port.png)
 修改配置文件里的用户名：
-![](imgs\改用户名.png)
+![](imgs/改用户名.png)
 更改用户名以后会导致无法登陆，换一个方式，增加一个默认的 `nginx` 用户：
-![](imgs\添加nginx用户.png)
+![](imgs/添加nginx用户.png)
 启动 `verynginx` :
 ```bash
 sudo /opt/verynginx/openresty/nginx/sbin/nginx
 ```
 访问 `192.168.56.101:8100/verynginx/index.html` :
-![](imgs\访问veryinginx.png)
+![](imgs/访问veryinginx.png)
 
 使用官方文档里的默认用户名和密码登录：`verynginx` / `verynginx` 。
-![](imgs\登录verynginx.png)
+![](imgs/登录verynginx.png)
 
 #### 配置宿主机 `host`
 在 `C:\Windows\System32\drivers\etc` 中找到 `host` 文件添加
@@ -134,9 +134,9 @@ sudo vi milkcandy.conf
 配置 `milkcandy.conf` :
 
 
-![](imgs\配置nginx_html.png)
+![](imgs/配置nginx_html.png)
 在互联网上访问： `www.milkcandynginx.com/index.html` :
-![](imgs\nginx_html.png)
+![](imgs/nginx_html.png)
 
 配置 `php-fpm` 反向代理服务器：
 下载 `php-fpm`：
@@ -144,7 +144,7 @@ sudo vi milkcandy.conf
 sudo apt install php-fpm
 ```
 更改端口号 `127.0.0.1:9000` ：
-![](imgs\php_port_reset.png)
+![](imgs/php_port_reset.png)
 在 `~/milkcandy/php` 中创建 `index.php` :
 ```php
 <?php
@@ -152,7 +152,7 @@ phpinfo();
 ?>
 ```
 在 `/etc/nginx/conf.d/milkcandynginx.conf` 进行配置，配置和之前的一致:
-![](imgs\配置nginx_html.png)
+![](imgs/配置nginx_html.png)
 
 
 重启 `php-fpm` 和 `nginx`：
@@ -166,8 +166,8 @@ sudo systemctl restart nginx #重启nginx
 
 ```
 根据配置连接 `www.milkcandyverynginx.com/index.php` or `milkcandnginx.com/index.php`都可以访问界面:
-![](imgs\php_1.png)
-![](imgs\php_2.png)
+![](imgs/php_1.png)
+![](imgs/php_2.png)
 
 ### 在 `nginx` 上搭建 `Wordpress 4.7 `:
 用 `scp` 将 `wordpress4.7-zip` 传输至虚拟机并且解压缩
@@ -237,9 +237,9 @@ flush privileges;
 exit
 ```
 访问 `wp.sec.cuc.edu.cn/wordpress/index.php` :
-![](imgs\wordpress_php.png)
+![](imgs/wordpress_php.png)
 登录：
-![](imgs\wordpress登录.png)
+![](imgs/wordpress登录.png)
 
 ### 在 `nginx` 上搭建 `DVWA`
 ```bash
