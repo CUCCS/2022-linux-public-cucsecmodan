@@ -88,14 +88,15 @@ sudo vi nginx.conf
 ![](imgs\verynginx_reset_port.png)
 修改配置文件里的用户名：
 ![](imgs\改用户名.png)
+更改用户名以后会导致无法登陆，换一个方式，增加一个默认的 `nginx` 用户：
+![](imgs\添加nginx用户.png)
 启动 `verynginx` :
 ```bash
 sudo /opt/verynginx/openresty/nginx/sbin/nginx
 ```
-访问 `192.168.56.101:8100` :
+访问 `192.168.56.101:8100/verynginx/index.html` :
 ![](imgs\访问veryinginx.png)
-更改用户名以后会导致无法登陆，换一个方式，增加一个默认的 `nginx` 用户：
-![](imgs\添加nginx用户.png)
+
 使用官方文档里的默认用户名和密码登录：`verynginx` / `verynginx` 。
 ![](imgs\登录verynginx.png)
 
@@ -103,7 +104,7 @@ sudo /opt/verynginx/openresty/nginx/sbin/nginx
 在 `C:\Windows\System32\drivers\etc` 中找到 `host` 文件添加
 ```bash
 # 测试网址
-192.168.56.101 www.milkcandymynginx.com www.milkcandynginx.com
+192.168.56.101 www.milkcandynginx.com www.milkcandyverynginx.com
 
 # 目标搭建网址
 192.168.56.101 wp.sec.cuc.edu.cn dvwa.sec.cuc.edu.cn
@@ -111,18 +112,18 @@ sudo /opt/verynginx/openresty/nginx/sbin/nginx
 
 ### 3.配置及搭建
 #### 配置 `nginx`
-创建服务器根目录 `milkcandynginx` :
+创建服务器根目录 `milkcandynginx/php` :
 ```bash
-mkdir milkcandynginx
+mkdir milkcandynginx/php
 ```
 创建 `index.html` 页面
 ```bash
-cd milkcandynginx
+cd milkcandynginx/php
 vi index.html
 # 以下内容在 index 中
 <html>
 <body>
-    <h1>this is my fiest nginx</h1>
+    <h1>hello nginx</h1>
 </body>
 #
 ```
@@ -132,17 +133,11 @@ sudo vi milkcandy.conf
 ```
 配置 `milkcandy.conf` :
 
-![](imgs\root&service_nginx.png)
-```bash
-cd /etc/nginx/sites-enabled
-sudo vi default
 
-root /home/cuc/milkcandynginx
-server_name www.milkcandynginx.com
-```
 ![](imgs\配置nginx_html.png)
-在互联网上访问： `www.milkcandynginx.com` :
+在互联网上访问： `www.milkcandynginx.com/index.html` :
 ![](imgs\nginx_html.png)
+
 配置 `php-fpm` 反向代理服务器：
 下载 `php-fpm`：
 ```bash
@@ -156,11 +151,11 @@ sudo apt install php-fpm
 phpinfo();
 ?>
 ```
-在 `/etc/nginx/conf.d` 中创建 `milkcandynginx.conf`:
-![](imgs\配置php_1.png)
-![](imgs\配置php_2.png)
+在 `/etc/nginx/conf.d/milkcandynginx.conf` 进行配置，配置和之前的一致:
+![](imgs\配置nginx_html.png)
 
-重启 `php-fpm` 和 `nginx`,连接 `www.milkcandyverynginx.com`:
+
+重启 `php-fpm` 和 `nginx`：
 ```bash
 whereis php-fpm #查看php-fpm的具体位置以及版本
 ps -ef | grep php #查看php进程是否在工作
@@ -170,6 +165,9 @@ sudo service php7.4-fpm restart #我的php-fpm版本是7.4
 sudo systemctl restart nginx #重启nginx
 
 ```
+根据配置连接 `www.milkcandyverynginx.com/index.php` or `milkcandnginx.com/index.php`都可以访问界面:
+![](imgs\php_1.png)
+![](imgs\php_2.png)
 
 ### 在 `nginx` 上搭建 `Wordpress 4.7 `:
 用 `scp` 将 `wordpress4.7-zip` 传输至虚拟机并且解压缩
@@ -212,8 +210,22 @@ server{
 sudo nginx -t
 sudo nginx -s reload
 ```
-按照 `readme.html` 中的步骤进行安装，对数据库进行配置
+
+#### 安装php及相关组件
 ```bash
+sudo apt install php-fpm php-mysql php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip
+```
+
+#### 下载mysql
+```bash
+sudo apt-get update && sudo apt-get dist-upgrade
+sudo apt-get install mysql-server
+```
+
+按照 `readme.html` 中的步骤进行安装，对数据库进行配置
+```sql
+sudo mysql
+
 create database wordpress;
 
 create user wordpress@localhost identified by 'wordpress';
@@ -221,7 +233,73 @@ create user wordpress@localhost identified by 'wordpress';
 grant all on wordpress.* to wordpress@localhost;
 
 flush privileges;
+
+exit
 ```
+访问 `wp.sec.cuc.edu.cn/wordpress/index.php` :
+![](imgs\wordpress_php.png)
+登录：
+![](imgs\wordpress登录.png)
+
+### 在 `nginx` 上搭建 `DVWA`
+```bash
+# 虚拟机
+mkdir milkcandynginx/dvwa/
+cd milkcandynginx/dvwa/
+
+# 宿主机下载好 DVWA-master.zip
+scp DVWA-master.zip cuc@192.168.56.101:~/milkcandynginx/dvwa
+
+# 虚拟机
+unzip DVWA-master.zip
+```
+
+配置 `DVWA`:
+```bash
+cd /etc/nginx/conf.d/
+sudo vi dvwa.conf
+
+# in file
+server{
+        listen 192.168.56.101:8100;
+        server_name dvwa.sec.cuc.edu.cn;
+
+        root /home/cuc/milkcandynginx/dvwa/DVWA-master;
+
+        location / {
+                index index.html;
+        }
+
+        location ~ \.php$ {
+                root /home/cuc/milkcandynginx/dvwa/DVWA-master;
+                include /etc/nginx/fastcgi.conf;
+                fastcgi_intercept_errors on;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+                fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+# 重新载入配置
+sudo nginx -t
+sudo nginx -s reload
+```
+按照 `readme.md` 文件进行安装：
+```sql
+sudo mysql
+
+create database dvwa;
+
+
+create user dvwa@localhost identified by 'p@ssw0rd';
+
+ grant all on dvwa.* to dvwa@localhost;
+flush privileges;
+```
+
+
+
 
 
 
